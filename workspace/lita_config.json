@@ -1,0 +1,137 @@
+{
+  "tickets": [
+    {
+      "task": "cut-branch",
+      "project": "OD",
+      "watchers": [
+        "paul",
+        "kara.kroupa",
+        "David.Woods"
+      ],
+      "assignee": "chapados",
+      "description": "Branch off Master to update the Release Candidate branch."
+    },
+    {
+      "task": "rename-letter-version",
+      "project": "OD",
+      "watchers": [
+        "paul",
+        "kara.kroupa"
+      ],
+      "assignee": "chapados",
+      "description": "Rename the Letter version into a number."
+    },
+    {
+      "task": "hook-hockeyapp",
+      "project": "OD",
+      "watchers": [
+        "paul"
+      ],
+      "assignee": "David.Woods",
+      "description": "Hook Hockeyapp to new version so it can properly do crash reporting and JIRA ticketing."
+    },
+    {
+      "task": "create-next-version",
+      "project": "OD",
+      "watchers": [
+        "paul"
+      ],
+      "assignee": "kara.kroupa",
+      "description": "Create next version in JIRA after upcoming release's version."
+    },
+    {
+      "task": "update-beta",
+      "project": "OD",
+      "watchers": [
+        "paul",
+        "sharon"
+      ],
+      "assignee": "David.Woods",
+      "description": "Kick off new RC Beta build."
+    },
+    {
+      "task": "update-marketing",
+      "project": "OD",
+      "watchers": [
+        "paul"
+      ],
+      "assignee": "David.Woods",
+      "description": "Kick off new Marketing build."
+    },
+    {
+      "task": "update-customer-success",
+      "project": "OD",
+      "watchers": [
+        "charlie"
+      ],
+      "assignee": "paul",
+      "description": "Kick off new Android Customer Success build."
+    },
+    {
+      "task": "update-whats-new",
+      "project": "OD",
+      "watchers": [
+        "paul"
+      ],
+      "assignee": "Matthew.Rubinstein",
+      "description": "Update info for What's New section in the Guide."
+    },
+    {
+      "task": "update-app-description",
+      "project": "OD",
+      "watchers": [
+        "paul"
+      ],
+      "assignee": "charlie",
+      "description": "Update description for the App Store."
+    },
+    {
+      "task": "update-screenshots",
+      "project": "OD",
+      "watchers": [
+        "paul"
+      ],
+      "assignee": "charlie",
+      "description": "Update App Store with new screenshots, if any."
+    },
+    {
+      "task": "update-store-version",
+      "project": "OD",
+      "watchers": [
+        "paul"
+      ],
+      "assignee": "charlie",
+      "description": "Update app version for the App Store."
+    },
+    {
+      "task": "update-supported-devices",
+      "project": "OD",
+      "watchers": [
+        "paul"
+      ],
+      "assignee": "charlie",
+      "description": "Update supported devices section with new supportable devices, if any."
+    }
+  ],
+  "release_schedule" : {
+      "header": ["<p class=\\\"auto-cursor-target\\\"><br /></p><table class=\\\"relative-table\\\" style=\\\"",
+                 "width: 673.0px;\\\"><colgroup><col style=\\\"width: 0.0px;\\\" /> <col style=\\\"width: 0.0px;\\\" />",
+                 "<col style=\\\"width: 0.0px;\\\" /><col style=\\\"width: 0.0px;\\\" /></colgroup><tbody><tr><th>",
+                 "<h2 style=\\\"text-align: right;\\\"> Build #</h2></th><th style=\\\"text-align: right;\\\"><h2>",
+                 "Branch Date</h2></th><th style=\\\"text-align: right;\\\"><h2>Submit Date</h2></th><th> ",
+                 "<h2 style=\\\"text-align: right;\\\">Release Date</h2></th></tr>"],
+      "row": ["<tr><td style=\\\"text-align: right;\\\"><h5>%{build}</h5></td><td style=\\\"text-align: right;\\\"><h5>",
+                 "%{branch}</h5></td><td style=\\\"text-align: right;\\\"><h5>%{submit}</h5></td><td ",
+                 "style=\\\"text-align: right;\\\"><h5>%{release}</h5></td></tr>"],
+      "content": ["{\"id\": \"%{id}\",\"type\": \"page\",\"title\": \"%{title}\",\"body\": {\"storage\": {\"value\": ",
+                 "\"%{updated_value}\",\"representation\": \"storage\"}},\"version\": {\"number\": %{version}}}"],
+      "end_html": "</tbody></table><p class=\\\"auto-cursor-target\\\"><br /></p>",
+      "content": ["{\"id\": \"%{id}\",\"type\": \"page\",\"title\": \"%{title}\",\"body\": {\"storage\": {\"value\": ",
+                 "\"%{updated_value}\",\"representation\": \"storage\"}},\"version\": {\"number\": %{version}}}"],
+      "schedule_item": ["{\"td\":[{\"style\":\"text-align: right;\", \"h5\":\"%{build}\"}, {\"style\":\"text-align: right;\",",
+                      " \"h5\":\"%{branch}\"}, {\"style\":\"text-align: right;\",\"h5\":\"%{submit}\"}, ",
+                      "{\"style\":\"text-align: right;\", \"h5\":\"%{release}\"}]}"]
+    },
+  "version_regex" : ["<div class=\".{1,10}\">Current Version<\/div><span class=\".{1,10}\">",
+                     "<div class=\".{1,10}\"><span class=\".{1,10}\">([^<]*)<\/span>"]
+}

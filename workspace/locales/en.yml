@@ -1,0 +1,155 @@
+en:
+  lita:
+    adapters:
+      slack:
+    handlers:
+      common:
+        error:
+          request: Error fetching JIRA issue
+          no_commits: "*No commits exist*"
+        help:
+          report:
+            syntax: "`mode_report` `project` `dev` | `prod` `day` | `week`"
+            desc: "Generate Mode email report and log bugs accordingly."
+            error: "Invalid command!\n`mode_report` `project` `dev` | `prod` `day` | `week`"
+          details:
+            syntax: "`jira issue`"
+            desc: Shows short information for <issue>
+          detailsfull:
+            syntax: "`jirafull issue`"
+            desc: Shows detailed information for <issue>
+          detailslist:
+            syntax: "`jiralist [issue1 issue2 issue3...]`"
+            desc: Shows short information for a list of <issues>
+          detailslistfull:
+            syntax: "`jiralistfull [issue1 issue2 issue3...]`"
+            desc: Shows detailed information for a list of <issues>
+          jira_query:
+            syntax: "`jiraquery <filtered issues name>`"
+            desc: Shows a list of <issues> being generated from crash filtering name
+          jira_description:
+            syntax: "`jira_description issue`"
+            desc: Show the description for <issue>
+          crash_counts:
+            syntax: "`update_crash_counts`"
+            desc: Updates JIRA crash counts for the top crashes in HockeyApp.
+          release_tickets:
+            syntax: "`create_release_tickets` `project` `release`"
+            desc: Creates release tickets.
+          jirapr:
+            syntax: "`jirapr` `jira issue`"
+            desc: Shows information for <issue> and related pull requests
+          cherry_pick:
+            syntax: "`cherry_pick` `branch` `jira issue`"
+            desc: See the hashes of commits that need to be cherry-picked for an <issue>
+          cherry_pick_do_it:
+            syntax: "`cherry_pick_do_it` `branch` `jira issue`"
+            desc: Cherry-pick a given jira issue to the branch
+          cherry_pick_commit:
+            syntax: "`cherry_pick_commit` `project` `branch` `commit hash`"
+            desc: Cherry-pick a given commit hash to the branch for the given project
+          jirarelease:
+            syntax: "`jirarelease` `release`"
+            desc: List all jira tickets targeted for a release
+          jirareleasecp:
+            syntax: "`jirareleasecp` `release`"
+            desc: List all jira tickets targeted for a release which have not been cherry-picked
+          bot_configs:
+            list_syntax: "`list_prod_affects_versions`"
+            list_desc: Lists what Hockeybot thinks current production versions are. 
+            update_prod_affects_versions_syntax: "`update_prod_affects_versions`"
+            update_prod_affects_versions_desc: Force Hockeybot to update what it thinks the current release versions of the Cozmo and OD apps 
+          cleanup_crash_issues:
+            syntax: "`cleanup_crash_issues` `project`"
+            desc: "Clean up crash issues about one week after release."
+            error: "Invalid command!\n`cleanup_crash_issues` `project`"
+          cleanup_ks_issues:
+            syntax: "`cleanup_ks_issues` `project`"
+            desc: "Clean up current Known Shippable issues."
+            error: "Invalid command!\n`cleanup_ks_issues` `project`"
+          release_schedule:
+            syntax: "`dates` `project` [`version`] [`branch date`], [`submit date`], [`release date`]"
+            desc: List/Update Release Schedule
+            error: "Invalid command!\n`dates` `project` [`version`] [`branch date`], [`submit date`], [`release date`]
+                    *date* should be *mm/dd/yy*"
+          filter_configs:
+            syntax: "`list_filter_configs`"
+            desc: Lists current filter configs.
+          ez_filter:
+            syntax: "`ezfilter` `filter_option`"
+            desc: List all assets in the given filter option.
+          ez_search_assets:
+            syntax: "`ezsearch` `query text`"
+            desc: List all found assets by asset number, name, and status. (e.g. ezsearch jane@anki.com, ezsearch iphone 6).
+          get_das_version:
+            syntax: "`DAS` `project` `app_version` `build_id`"
+            desc: List all DAS versions of build_id with app_version in a project.
+          vector_error_code:
+            syntax: "`vector_error_code` `error_code`"
+            desc: Describe what the Vector <error_code> means.
+          vector_events:
+            syntax: "`vector_events` `<app | robot | cloud>`"
+            desc: "Show all vector events by event_type."
+          ez_checkout_asset_no_location:
+            syntax: "`ezcheckout` `asset#` `user_email`"
+            desc: "Checkout asset to a user and list asset details (location is defaulted to San Francisco)."
+          ez_checkout_asset:
+            syntax: "`ezcheckout` `asset#` `user_email` `location`(San Francisco, Vietnam, etc.)"
+            desc: "Checkout asset to a user and list asset details."
+        issue:
+          created: "Issue %{key} created"
+          details: "<%{url}|%{key}> %{summary}\n*Status:* %{status}, *Assigned To:* %{assigned}\n*Fix Version:* %{fixVersion}\n*VIP Category:* %{vipCategory}, *Priority:* %{priority}"
+          oneline: "<%{url}|%{key}> %{summary}"
+          description: "<%{url}|%{key}> %{summary}\n*Description:* %{description}"
+          small: "<%{url}|%{key}>: %{status}"
+          pullrequest: "<%{url}|%{key}> %{summary}\n*Status:* %{status}, *Pull Requests:* %{pull_requests}\n"
+          summary: "%{key}: %{summary}"
+          ios: "iOS"
+          android: 'Android'
+        comment:
+          added: "Comment and Affects Version '%{affects_version}' added to %{issue}"
+        hockeyappissues:
+          new: "This is a new issue, logged as %{site}/browse/%{key}"
+          new_release_ticket: "%{release} task: %{task}, logged as %{site}/browse/%{key}"
+          duplicate: "This is a duplicate issue of:"
+          invalid_release: "<!here> Someone is playing with the invalid `%{release}` release build."
+          affects_version_undef_jira: "<!here> The `%{release}` affects version is not defined in JIRA. `%{release}` crashes will not be processed until that is done."
+          create_tickets_issue: "There was a problem creating release tickets. %{e}"
+        release:
+          excluded: "The %{release} release is excluded from bot processing, ignoring."
+        request:
+          executing: "Your request is executing, please wait...."
+          timeout: "Your request timed out. Please retry the request!"
+        email:
+          sent_success: "Results email sent to %{to_email}"
+        git:
+          cloning: "I need to clone this repo, please wait..."
+          fetching: "Fetching, please wait..."
+          cherry_pick: "*Commits to be cherry picked starting at the top:*\n```%{commits}```"
+          no_branch: "No such branch"
+          branched: "Already in branch:\n```%{commits}```"
+          picked: "Already cherry-picked:\n```%{commits}```"
+          no_pr: "No pull requests"
+          cherry_pick_failure: "Auto cherry-picked FAILED, try again manually"
+          cherry_pick_success: "Cherry-pick was a success"
+        release_schedule:
+          result: 'Release Schedule for %{build} :'
+        das_version:
+          multil_db_found: 'DAS versions appear in more than one database, but should appear in just one. This may be an issue with a build ID being used multiple times. This may cause issues, so contact a build engineer.'
+          list_info: 'All das.version of build %{argument_build_id} found from %{argument_project} with app version %{argument_app_version}:'
+          no_das_found: 'No das_version was found with the given credentials App_ID = %{argument_app_version} and Build ID = %{argument_build_id} in project %{argument_project} . Be sure that you entered the correct information and try again'
+          invalid_project_name: 'Project name: %{argument_project} is not valid.'
+        vector_code:
+          code_not_found: 'Vector error code not found.'
+        vector_events:
+          executing: "Your request is executing, please wait...."
+          invalid_event_name: 'Event `%{argument_event}` is not valid.'
+          empty_data: 'No versions.'
+        ez_checkout_asset:
+          asset_checked_out: '<%{ez_url}/%{asset_num}|%{asset_num} - %{asset_name}> is already checked out by *%{user_name}*.'
+          asset_not_found: 'This device was not found in EzOffice.'
+          location_not_found: 'Location *%{location_name}* was not found in EzOffice.'
+          user_not_found: 'User was not found in EzOffice.'
+          comment: "Checked out *%{asset_name}* to *%{user_email}* by Hockeybot."
+          checkout_error: "Cannot checkout *%{asset_name}* due to an error: %{checkout_result}"
+          checkout_result: "Checked out *<%{ez_url}/%{asset_num}|%{asset_num} - %{asset_name}>* to *%{user_name}*.\n*Asset #:* %{asset_num}\n*Name:* %{asset_name}\n*Asset Identification Number:* %{asset_ain}\n*Email:* %{user_email}\n*Location:* %{asset_location}\n*Status:* %{asset_status}"

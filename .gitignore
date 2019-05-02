@@ -1,0 +1,9 @@
+/.vagrant
+.bundle/
+bin/
+content.csv
+vendor/
+.idea/
+scripts/*.conf
+
+
